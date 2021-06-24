@@ -98,10 +98,10 @@ namespace phontip_csharppj
             this.dataGrid.Name = "dataGrid";
             this.dataGrid.RowHeadersWidth = 80;
             this.dataGrid.RowTemplate.Height = 50;
-            this.dataGrid.Size = new System.Drawing.Size(899, 407);
+            this.dataGrid.Size = new System.Drawing.Size(872, 407);
             this.dataGrid.TabIndex = 0;
             this.dataGrid.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGrid_CellClick_1);
-            this.dataGrid.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGrid_CellContentClick);
+          
             // 
             // delete_Button
             // 
@@ -370,7 +370,7 @@ namespace phontip_csharppj
             this.textBox5.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox5.Location = new System.Drawing.Point(375, 407);
             this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(899, 37);
+            this.textBox5.Size = new System.Drawing.Size(872, 37);
             this.textBox5.TabIndex = 46;
             this.textBox5.TextChanged += new System.EventHandler(this.textBox5_TextChanged);
             // 

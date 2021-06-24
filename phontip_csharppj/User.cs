@@ -35,6 +35,8 @@ namespace phontip_csharppj
             cmd = conn.CreateCommand();
             cmd.CommandText = $"SELECT * FROM user";
 
+
+            dataGrid.RowTemplate.Height = 30;
             MySqlDataAdapter adapter = new MySqlDataAdapter(cmd);
             adapter.Fill(ds);
 
@@ -54,6 +56,7 @@ namespace phontip_csharppj
             DataTable table = new DataTable();
             adapter.Fill(table);
 
+            
             dataGrid.AllowUserToAddRows = false;
             dataGrid.DataSource = table;         
            
@@ -69,22 +72,7 @@ namespace phontip_csharppj
         {
             Showdata("SELECT * FROM user");
         } 
-        private void dataGrid_CellClick(object sender, DataGridViewCellEventArgs e) //คลิก datagrid ไป textbox
-        {
-            MySqlConnection conn = databaseConnection();
-            dataGrid.CurrentRow.Selected = true;
-            textBox1.Text = dataGrid.Rows[e.RowIndex].Cells["User_Name"].FormattedValue.ToString();
-            textBox2.Text = dataGrid.Rows[e.RowIndex].Cells["Phone"].FormattedValue.ToString();
-            textBox3.Text = dataGrid.Rows[e.RowIndex].Cells["Address"].FormattedValue.ToString();
-            textBox4.Text = dataGrid.Rows[e.RowIndex].Cells["Password"].FormattedValue.ToString();
-           
-          
-           
-           
-            
-            
-
-        }
+     
 
         private void Save_Button_Click(object sender, EventArgs e) //ปุ่มบันทึก
         {
@@ -124,7 +112,9 @@ namespace phontip_csharppj
         private void delete_Button_Click(object sender, EventArgs e) //ปุ่มลบข้อมูล
         {
             int selectRow = dataGrid.CurrentCell.RowIndex;
+
             int deleteID = Convert.ToInt32(dataGrid.Rows[selectRow].Cells["ID"].Value);
+
             MySqlConnection conn = databaseConnection();
             string sql = $"DELETE FROM user WHERE ID = \"{deleteID}\"";
             MySqlCommand cmd = new MySqlCommand(sql, conn);
@@ -163,12 +153,8 @@ namespace phontip_csharppj
             this.Hide();
         }
 
-        private void dataGrid_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-           
-        }
 
-        private void dataGrid_CellClick_1(object sender, DataGridViewCellEventArgs e)
+        private void dataGrid_CellClick_1(object sender, DataGridViewCellEventArgs e) //คลิก datagrid ไป textbox
         {
              
                 dataGrid.CurrentRow.Selected = true;
@@ -176,12 +162,7 @@ namespace phontip_csharppj
                 textBox2.Text = dataGrid.Rows[e.RowIndex].Cells["Phone"].FormattedValue.ToString();
                 textBox3.Text = dataGrid.Rows[e.RowIndex].Cells["Address"].FormattedValue.ToString();
                 textBox4.Text = dataGrid.Rows[e.RowIndex].Cells["Password"].FormattedValue.ToString();
-
-                
-
-
-
-            
+   
         }
     }
 }
